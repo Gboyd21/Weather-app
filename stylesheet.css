@@ -15,6 +15,10 @@ ul {
 .bolt {
   color: goldenrod;
 }
+.btn-btn-primary {
+  text-decoration: none;
+  font-weight: medium;
+}
 .card {
   border: none;
 }
