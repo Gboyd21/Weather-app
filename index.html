@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/30009a3fd5.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <title>Weather App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100;0,8..144,200;0,8..144,300;0,8..144,400;0,8..144,500;0,8..144,600;0,8..144,700;0,8..144,800;0,8..144,900;1,8..144,100;1,8..144,200;1,8..144,300;1,8..144,400;1,8..144,500;1,8..144,600;1,8..144,700;1,8..144,800;1,8..144,900&family=Rock+Salt&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/stylesheet.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row row-cols-2">
+        <div class="col">
+          <span class="city">Chattanooga</span>
+          <br />
+          <span id="date"></span>
+          <br />
+          <span class="temperature" id="temperature">1</span>
+          <ul>
+            <li>
+              <span class="weather-details" id="percipitation">
+                percipitation 0%
+              </span>
+            </li>
+            <li>
+              <span class="weather-details" id="humidity"></span>
+            </li>
+            <li>
+              <span class="weather-details" id="wind-speed"> wind 0 MPH </span>
+            </li>
+          </ul>
+        </div>
+        <div class="col">
+          <form id="search-city-form">
+            <input
+              id="searching"
+              type="search"
+              placeholder="city name here"
+              autocomplete="off"
+              class="form-control"
+            />
+            <input class="btn btn-primary" type="submit" value="search" />
+            <button id="current-location">current location</button>
+          </form>
+        </div>
+      </div>
+      <div class="row row-cols-5">
+        <div class="col">
+          <i class="fa-solid fa-cloud cloud"> </i>
+          <p class="high-low">
+            95°/77° <br />
+            <span class="dates">Today</span>
+          </p>
+        </div>
+        <div class="col">
+          <i class="fa-solid fa-cloud-rain rain"> </i>
+          <p class="high-low">
+            85°/ 60° <br />
+            <span class="dates">Tuesday</span>
+          </p>
+        </div>
+        <div class="col">
+          <i class="fa-solid fa-cloud-bolt bolt"> </i>
+          <p class="high-low">
+            70°/60°
+            <br />
+            <span class="dates">Wednesday</span>
+          </p>
+        </div>
+        <div class="col">
+          <i class="fa-solid fa-sun sun"> </i>
+          <p class="high-low">
+            90°/88°
+            <br />
+            <span class="dates">Thursday</span>
+          </p>
+        </div>
+        <div class="col">
+          <i class="fa-solid fa-sun sun"> </i>
+          <p class="high-low">
+            95°/90°
+            <br />
+            <span class="dates">Friday</span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>
