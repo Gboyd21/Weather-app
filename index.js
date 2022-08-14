@@ -21,7 +21,8 @@ let date = document.querySelector("#date");
 date.innerHTML = `${day} ${hour}:${minutes}`;
 
 function showTemp(response) {
-  let temperature = Math.round(response.data.main.temp);
+  celsiusTemp = Math.round(response.data.main.temp);
+  let temperature = celsiusTemp;
   let wind = Math.round(response.data.wind.speed);
   let humidityData = Math.round(response.data.main.humidity);
   let humidity = document.querySelector("#humidity");
@@ -51,7 +52,7 @@ function showGeoTemp(response) {
   let humidity = document.querySelector("#humidity");
   let cityTemp = document.querySelector("#temperature");
   let windSpeed = document.querySelector("#wind-speed");
-  cityTemp.innerHTML = `${temperature}°c`;
+  cityTemp.innerHTML = `${temperature}`;
   humidity.innerHTML = `Humidity: ${humidityData}%`;
   newCity.innerHTML = city;
   windSpeed.innerHTML = `Wind: ${wind} mph`;
@@ -69,7 +70,34 @@ function getCurrentPosition() {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
 
+function showFahrenheitTemp(event) {
+  event.preventDefault();
+  let fahrenheit = (celsiusTemp * 9) / 5 + 32;
+
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(fahrenheit);
+}
+
+function showCelsiusTemp(event) {
+  event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = celsiusTemp;
+}
+
+let celsiusTemp = null;
+
 let form = document.querySelector("#search-city-form");
 form.addEventListener("submit", showCity);
+
 let button = document.querySelector("#current-location");
 button.addEventListener("click", getCurrentPosition);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", showFahrenheitTemp);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", showCelsiusTemp);
