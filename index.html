@@ -26,80 +26,89 @@
     <link rel="stylesheet" href="stylesheet.css" />
   </head>
   <body>
-    <div class="container">
-      <div class="row row-cols-2">
-        <div class="col">
-          <span class="city">Chattanooga</span>
-          <br />
-          <span id="date"></span>
-          <br />
-          <span class="temperature" id="temperature">1</span>
-          <ul>
-            <li>
-              <span class="weather-details" id="percipitation">
-                percipitation 0%
-              </span>
-            </li>
-            <li>
-              <span class="weather-details" id="humidity"></span>
-            </li>
-            <li>
-              <span class="weather-details" id="wind-speed"> wind 0 MPH </span>
-            </li>
-          </ul>
-        </div>
-        <div class="col">
-          <form id="search-city-form">
-            <input
-              id="searching"
-              type="search"
-              placeholder="city name here"
-              autocomplete="off"
-              class="form-control"
-            />
-            <input class="btn btn-primary" type="submit" value="search" />
-            <button id="current-location">current location</button>
-          </form>
-        </div>
-      </div>
-      <div class="row row-cols-5">
-        <div class="col">
-          <i class="fa-solid fa-cloud cloud"> </i>
-          <p class="high-low">
-            95°/77° <br />
-            <span class="dates">Today</span>
-          </p>
-        </div>
-        <div class="col">
-          <i class="fa-solid fa-cloud-rain rain"> </i>
-          <p class="high-low">
-            85°/ 60° <br />
-            <span class="dates">Tuesday</span>
-          </p>
-        </div>
-        <div class="col">
-          <i class="fa-solid fa-cloud-bolt bolt"> </i>
-          <p class="high-low">
-            70°/60°
+    <div class="wrapper">
+      <div class="container">
+        <form id="search-city-form">
+          <div class="row">
+            <div class="col-7">
+              <input
+                id="searching"
+                type="search"
+                placeholder="city name here"
+                autocomplete="off"
+                class="form-control"
+              />
+            </div>
+            <div class="col-2">
+              <input class="btn btn-primary" type="submit" value="search" />
+            </div>
+            <div class="col-3">
+              <button id="current-location">current location</button>
+            </div>
+          </div>
+        </form>
+        <div class="row">
+          <div class="col-6">
+            <span class="city">Chattanooga</span>
             <br />
-            <span class="dates">Wednesday</span>
-          </p>
+            <span id="date"></span>
+            <ul>
+              <li>
+                <span class="weather-details" id="humidity"></span>
+              </li>
+              <li>
+                <span class="weather-details" id="wind-speed">
+                  wind 0 MPH
+                </span>
+              </li>
+            </ul>
+          </div>
+          <div class="col-6">
+            <span class="temperature" id="temperature"
+              ><img src="" alt="clear sky" /> 1</span
+            >
+            <span class="units">°C <a href="#">|°F</a></span>
+          </div>
         </div>
-        <div class="col">
-          <i class="fa-solid fa-sun sun"> </i>
-          <p class="high-low">
-            90°/88°
-            <br />
-            <span class="dates">Thursday</span>
-          </p>
-        </div>
-        <div class="col">
-          <i class="fa-solid fa-sun sun"> </i>
-          <p class="high-low">
-            95°/90°
-            <br />
-            <span class="dates">Friday</span>
-          </p>
+        <div class="row row-cols-5">
+          <div class="col">
+            <i class="fa-solid fa-cloud cloud"> </i>
+            <p class="high-low">
+              95°/77° <br />
+              <span class="dates">Today</span>
+            </p>
+          </div>
+          <div class="col">
+            <i class="fa-solid fa-cloud-rain rain"> </i>
+            <p class="high-low">
+              85°/ 60° <br />
+              <span class="dates">Tuesday</span>
+            </p>
+          </div>
+          <div class="col">
+            <i class="fa-solid fa-cloud-bolt bolt"> </i>
+            <p class="high-low">
+              70°/60°
+              <br />
+              <span class="dates">Wednesday</span>
+            </p>
+          </div>
+          <div class="col">
+            <i class="fa-solid fa-sun sun"> </i>
+            <p class="high-low">
+              90°/88°
+              <br />
+              <span class="dates">Thursday</span>
+            </p>
+          </div>
+          <div class="col">
+            <i class="fa-solid fa-sun sun"> </i>
+            <p class="high-low">
+              95°/90°
+              <br />
+              <span class="dates">Friday</span>
+            </p>
+          </div>
         </div>
       </div>
     </div>

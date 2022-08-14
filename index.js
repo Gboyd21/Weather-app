@@ -28,7 +28,7 @@ function showTemp(response) {
   let cityTemp = document.querySelector("#temperature");
   let windSpeed = document.querySelector("#wind-speed");
   windSpeed.innerHTML = `Wind: ${wind} mph`;
-  cityTemp.innerHTML = `${temperature}°c`;
+  cityTemp.innerHTML = `${temperature}`;
   humidity.innerHTML = `Humidity: ${humidityData}%`;
 }
 function showCity(event) {
