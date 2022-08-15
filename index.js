@@ -31,7 +31,7 @@ function showTemp(response) {
   let icon = document.querySelector("#icon-code");
   let description = document.querySelector("#description");
 
-  windSpeed.innerHTML = `Wind: ${wind} mph`;
+  windSpeed.innerHTML = `Wind: ${wind} km/h`;
   cityTemp.innerHTML = `${temperature}`;
   humidity.innerHTML = `Humidity: ${humidityData}%`;
   icon.setAttribute(

@@ -47,34 +47,32 @@
             </div>
           </div>
         </form>
-        <div class="row">
+        <div class="row" id="city-name">
           <div class="col-6">
             <span class="city">Chattanooga</span>
             <br />
             <span id="date"></span>
+            <span class="weather-description" id="description"></span>
             <ul>
               <li>
                 <span class="weather-details" id="humidity"></span>
+                <span class="weather-details" id="wind-speed"> </span>
               </li>
-              <li>
-                <span class="weather-details" id="wind-speed">
-                  wind 0 MPH
-                </span>
-              </li>
-              <li class="weather-description" id="description"></li>
             </ul>
           </div>
           <div class="col-6">
-            <img
-              src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-              alt="clear sky"
-              id="icon-code"
-            />
-            <span class="temperature" id="temperature">1</span>
-            <span class="units">
-              <a href="#" id="celsius-link" class="active">°C</a>
-              <a href="#" id="fahrenheit-link">|°F</a></span
-            >
+            <span class="city-temperature"
+              ><img
+                src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+                alt="clear sky"
+                id="icon-code"
+              />
+              <span class="temperature" id="temperature">1</span>
+              <span class="units">
+                <a href="#" id="celsius-link" class="active">°C</a>
+                <a href="#" id="fahrenheit-link">|°F</a></span
+              >
+            </span>
           </div>
         </div>
         <div class="row row-cols-5">

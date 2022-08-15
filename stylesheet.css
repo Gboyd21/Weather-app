@@ -10,6 +10,7 @@ body {
 li {
   list-style: none;
 }
+
 ul {
   padding-left: 0rem;
 }
@@ -33,6 +34,16 @@ ul {
 }
 .city {
   font-size: 40px;
+}
+#city-name {
+  margin-bottom: 20px;
+}
+#city-name:first-letter {
+  text-transform: capitalize;
+}
+.city-temperature {
+  float: right;
+  padding-right: 10px;
 }
 .cloud {
   color: gainsboro;
@@ -76,9 +87,10 @@ ul {
 .temperature {
   font-size: 40px;
 }
-.units {
-  margin-top: -34px;
+.weather-description {
+  font-size: 14px;
 }
+
 .weather-details {
   font-size: 14px;
 }
