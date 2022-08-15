@@ -34,9 +34,9 @@
               <input
                 id="searching"
                 type="search"
-                placeholder="city name here"
+                placeholder="city name"
                 autocomplete="off"
-                class="form-control"
+                class="form-control city-input"
               />
             </div>
             <div class="col-2">
@@ -47,18 +47,12 @@
             </div>
           </div>
         </form>
+        <hr />
         <div class="row" id="city-name">
           <div class="col-6">
             <span class="city">Chattanooga</span>
             <br />
             <span id="date"></span>
-            <span class="weather-description" id="description"></span>
-            <ul>
-              <li>
-                <span class="weather-details" id="humidity"></span>
-                <span class="weather-details" id="wind-speed"> </span>
-              </li>
-            </ul>
           </div>
           <div class="col-6">
             <span class="city-temperature"
@@ -75,7 +69,18 @@
             </span>
           </div>
         </div>
-        <div class="row row-cols-5">
+        <div class="row">
+          <div class="col-12">
+            <ul>
+              <li>
+                <span class="weather-details" id="humidity"></span>
+                <span class="weather-details" id="wind-speed"> </span>
+              </li>
+              <li class="weather-details" id="description"></li>
+            </ul>
+          </div>
+        </div>
+        <div class="weather-forecast row row-cols-5">
           <div class="col">
             <i class="fa-solid fa-cloud cloud"> </i>
             <p class="high-low">
