@@ -7,9 +7,13 @@ let days = [
   "Friday",
   "Saturday",
 ];
+
 let now = new Date();
 let day = days[now.getDay()];
 let hour = now.getHours();
+let morningEvening = hour >= 12 ? "pm" : "am";
+hour = hour % 12;
+hour = hour ? hour : 12;
 if (hour < 10) {
   hour = `0${hour}`;
 }
@@ -18,7 +22,7 @@ if (minutes < 10) {
   minutes = `0${minutes}`;
 }
 let date = document.querySelector("#date");
-date.innerHTML = `${day} ${hour}:${minutes}`;
+date.innerHTML = `${day} ${hour}:${minutes} ${morningEvening}`;
 
 function showTemp(response) {
   celsiusTemp = Math.round(response.data.main.temp);
