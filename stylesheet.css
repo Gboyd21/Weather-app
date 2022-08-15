@@ -6,9 +6,7 @@ body {
   max-width: 800px;
   margin: 60px auto;
 }
-img {
-  width: 5px;
-}
+
 li {
   list-style: none;
 }
@@ -82,7 +80,7 @@ ul {
   margin-top: -34px;
 }
 .weather-details {
-  font-size: 18px;
+  font-size: 14px;
 }
 .wrapper {
   border: 1px solid rgba(0, 0, 0, 0.3);
