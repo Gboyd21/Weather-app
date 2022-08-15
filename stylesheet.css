@@ -87,6 +87,10 @@ ul {
 .temperature {
   font-size: 40px;
 }
+.units {
+  position: relative;
+  top: -12px;
+}
 .weather-description {
   font-size: 14px;
 }
