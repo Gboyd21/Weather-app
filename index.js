@@ -35,9 +35,9 @@ function showTemp(response) {
   let icon = document.querySelector("#icon-code");
   let description = document.querySelector("#description");
 
-  windSpeed.innerHTML = `Wind: ${wind} mph`;
+  windSpeed.innerHTML = `${wind} mph`;
   cityTemp.innerHTML = `${temperature}`;
-  humidity.innerHTML = `Humidity: ${humidityData}%`;
+  humidity.innerHTML = `${humidityData} %`;
   icon.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
@@ -66,7 +66,7 @@ function showGeoTemp(response) {
   let windSpeed = document.querySelector("#wind-speed");
 
   cityTemp.innerHTML = `${temperature}`;
-  humidity.innerHTML = `Humidity: ${humidityData}%`;
+  humidity.innerHTML = humidityData;
   newCity.innerHTML = city;
   windSpeed.innerHTML = `Wind: ${wind} mph`;
 }
