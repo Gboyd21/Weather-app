@@ -24,7 +24,7 @@ if (minutes < 10) {
 let date = document.querySelector("#date");
 date.innerHTML = `${day} ${hour}:${minutes} ${morningEvening}`;
 
-function displayForecast() {
+function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
   let days = ["Tues", "Wed", "Thurs", "Fri", "Sat", "Sun"];
@@ -40,6 +40,13 @@ function displayForecast() {
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  let apiKey = "cd891ee483e8a9a51b8fc31affc5f978";
+  let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&units=imperial&appid=${apikey}`;
+
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function showTemp(response) {
@@ -61,7 +68,10 @@ function showTemp(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   description.innerHTML = response.data.weather[0].description;
+
+  getForecast(response.data.coords);
 }
+
 function showCity(event) {
   event.preventDefault();
   let city = document.querySelector("#searching");
@@ -73,6 +83,7 @@ function showCity(event) {
   let apiUrl = `${apiEndpoint}${city.value}&units=${unit}&appid=${apiKey}`;
   axios.get(apiUrl).then(showTemp);
 }
+
 function showGeoTemp(response) {
   let temperature = Math.round(response.data.main.temp);
   let wind = Math.round(response.data.wind.speed);
@@ -88,6 +99,7 @@ function showGeoTemp(response) {
   newCity.innerHTML = city;
   windSpeed.innerHTML = `Wind: ${wind} mph`;
 }
+
 function showPosition(position) {
   let longitude = position.coords.longitude;
   let latitude = position.coords.latitude;
@@ -98,6 +110,7 @@ function showPosition(position) {
 
   axios.get(apiUrl).then(showGeoTemp);
 }
+
 function getCurrentPosition() {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
@@ -132,5 +145,3 @@ fahrenheitLink.addEventListener("click", showFahrenheitTemp);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", showCelsiusTemp);
-
-displayForecast();
