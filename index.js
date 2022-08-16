@@ -24,6 +24,24 @@ if (minutes < 10) {
 let date = document.querySelector("#date");
 date.innerHTML = `${day} ${hour}:${minutes} ${morningEvening}`;
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Tues", "Wed", "Thurs", "Fri", "Sat", "Sun"];
+
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2">
+            <div class="dates">${day}</div>
+            <i class="fa-solid fa-cloud cloud weather-icon"></i>
+            <div class="high-low">95°/77°</div>
+          </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function showTemp(response) {
   fahrenheitTemp = Math.round(response.data.main.temp);
   let temperature = fahrenheitTemp;
@@ -114,3 +132,5 @@ fahrenheitLink.addEventListener("click", showFahrenheitTemp);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", showCelsiusTemp);
+
+displayForecast();

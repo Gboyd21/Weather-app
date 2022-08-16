@@ -100,6 +100,9 @@ strong {
 .weather-details:first-letter {
   text-transform: capitalize;
 }
+.weather-icon {
+  padding: 20px;
+}
 .weather-forecast {
   margin: 40px 0px;
   padding-bottom: 40px;
