@@ -66,38 +66,43 @@ function getForecast(coordinates) {
 }
 
 function showTemp(response) {
-  fahrenheitTemp = Math.round(response.data.main.temp);
-  let temperature = fahrenheitTemp;
+  let temperature = document.querySelector("#temperature");
   let wind = Math.round(response.data.wind.speed);
+  let windSpeed = document.querySelector("#wind-speed");
   let humidityData = Math.round(response.data.main.humidity);
   let humidity = document.querySelector("#humidity");
-  let cityTemp = document.querySelector("#temperature");
-  let windSpeed = document.querySelector("#wind-speed");
-  let icon = document.querySelector("#icon-code");
+  let newCity = document.querySelector(".city");
   let description = document.querySelector("#description");
+  let icon = document.querySelector("#icon-code");
 
+  fahrenheitTemp = Math.round(response.data.main.temp);
+
+  temperature.innerHTML = `${fahrenheitTemp}`;
   windSpeed.innerHTML = `${wind} mph`;
-  cityTemp.innerHTML = `${temperature}`;
   humidity.innerHTML = `${humidityData} %`;
+  newCity.innerHTML = `${response.data.name}`;
+  description.innerHTML = response.data.weather[0].description;
+
   icon.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-  description.innerHTML = response.data.weather[0].description;
 
   getForecast(response.data.coord);
 }
 
-function showCity(event) {
-  event.preventDefault();
-  let city = document.querySelector("#searching");
-  let newCity = document.querySelector(".city");
-  newCity.innerHTML = `${city.value}`;
+function search(city) {
   let apiKey = "cd891ee483e8a9a51b8fc31affc5f978";
   let unit = "imperial";
   let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather?q=";
-  let apiUrl = `${apiEndpoint}${city.value}&units=${unit}&appid=${apiKey}`;
+  let apiUrl = `${apiEndpoint}${city}&units=${unit}&appid=${apiKey}`;
   axios.get(apiUrl).then(showTemp);
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let city = document.querySelector("#searching");
+  search(city.value);
 }
 
 function showGeoTemp(response) {
@@ -151,7 +156,7 @@ function showFahrenheitTemp(event) {
 let fahrenheitTemp = null;
 
 let form = document.querySelector("#search-city-form");
-form.addEventListener("submit", showCity);
+form.addEventListener("submit", handleSubmit);
 
 let button = document.querySelector("#current-location");
 button.addEventListener("click", getCurrentPosition);
@@ -161,3 +166,5 @@ fahrenheitLink.addEventListener("click", showFahrenheitTemp);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", showCelsiusTemp);
+
+search("chattanooga");

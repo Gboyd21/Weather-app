@@ -39,7 +39,7 @@ strong {
   padding: 6px;
 }
 .city {
-  font-size: 60px;
+  font-size: 50px;
   color: rgb(59, 57, 57);
 }
 .city-input {
@@ -77,7 +77,6 @@ strong {
 .high-low {
   font-size: smaller;
 }
-
 .rain {
   color: grey;
 }
