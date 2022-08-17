@@ -24,28 +24,44 @@ if (minutes < 10) {
 let date = document.querySelector("#date");
 date.innerHTML = `${day} ${hour}:${minutes} ${morningEvening}`;
 
-function displayForecast(response) {
-  let forecastElement = document.querySelector("#forecast");
-  let forecastHTML = `<div class="row">`;
-  let days = ["Tues", "Wed", "Thurs", "Fri", "Sat", "Sun"];
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col-2">
-            <div class="dates">${day}</div>
-            <i class="fa-solid fa-cloud cloud weather-icon"></i>
-            <div class="high-low">95°/77°</div>
+  return days[day];
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
+
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-2">
+            <div class="dates">${formatDay(forecastDay.dt)}</div>
+            <img src="http://openweathermap.org/img/wn/${
+              forecastDay.weather[0].icon
+            }@2x.png" alt="" class="weather-icons" />
+            <div class="high-low">H:${Math.round(
+              forecastDay.temp.max
+            )}°|L:${Math.round(forecastDay.temp.min)}°</div>
           </div>`;
+    }
   });
+
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
 
 function getForecast(coordinates) {
-  let apiKey = "cd891ee483e8a9a51b8fc31affc5f978";
-  let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&units=imperial&appid=${apikey}`;
-
+  let apiKey = "89e401f112d23210a9978961b6aefa4e";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&units=imperial&appid=${apiKey}`;
   axios.get(apiUrl).then(displayForecast);
 }
 
@@ -69,7 +85,7 @@ function showTemp(response) {
   );
   description.innerHTML = response.data.weather[0].description;
 
-  getForecast(response.data.coords);
+  getForecast(response.data.coord);
 }
 
 function showCity(event) {
