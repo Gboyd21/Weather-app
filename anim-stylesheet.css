@@ -1,0 +1,35 @@
+.blue-sky {
+  background: #add8d8;
+}
+.sun {
+  margin-left: -100px;
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+  box-shadow: inset 0 0 50px #fff, inset 20px 0 80px #ece70d,
+    inset -20px 0 80px #ece70d, inset 20px 0 300px #fff,
+    inset -20px 0 300px #fff, 0 0 50px #fff, -10px 0 80px #ece70d,
+    10px 0 80px #ece70d;
+  opacity: 0.8;
+  z-index: -1;
+  position: fixed;
+}
+.cloudy {
+  width: 1000px;
+  animation: move-clouds 150s linear infinite;
+  position: fixed;
+  z-index: -1;
+}
+.c2 {
+  margin-top: 100px;
+  left: -200px;
+  animation: move-clouds 150s linear infinite;
+}
+@keyframes move-clouds {
+  from {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+  }
+  to {
+    -webkit-transform: translate3d(1000px, 0px, 0px);
+  }
+}

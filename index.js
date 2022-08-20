@@ -65,6 +65,36 @@ function getForecast(coordinates) {
   axios.get(apiUrl).then(displayForecast);
 }
 
+function showAnimation(response) {
+  let background1 = document.querySelector(".clear");
+  let background2 = document.querySelector(".clouds");
+  let background3 = document.querySelector(".rain");
+
+  let clearAnimElement = document.querySelector("#sun");
+  let clearAnimHTML = `<div>`;
+
+  if (response === "Clear") {
+    background1.classList.add("blue-sky");
+
+    clearAnimHTML =
+      clearAnimHTML +
+      `<div class="sun">
+      <img
+      class="cloudy"
+      src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/043/986/original/60fe98bc3d624000048712a7.png?1660873653"
+    />
+    <img
+      class="cloudy c2"
+      src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/043/986/original/60fe98bc3d624000048712a7.png?1660873653"
+      alt=""
+    /> </div>`;
+  } else {
+    background1.classList.remove("blue-sky");
+  }
+  clearAnimHTML = clearAnimHTML + `</div>`;
+  clearAnimElement.innerHTML = clearAnimHTML;
+}
+
 function showTemp(response) {
   let temperature = document.querySelector("#temperature");
   let wind = Math.round(response.data.wind.speed);
@@ -89,6 +119,7 @@ function showTemp(response) {
   );
 
   getForecast(response.data.coord);
+  showAnimation(response.data.weather[0].main);
 }
 
 function search(city) {
