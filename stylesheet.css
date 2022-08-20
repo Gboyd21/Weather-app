@@ -21,15 +21,6 @@ ul {
 strong {
   color: rgb(213, 68, 191);
 }
-.active {
-  color: black;
-  cursor: default;
-}
-.active:hover {
-  text-decoration: none;
-  color: black;
-}
-
 .btn-primary {
   text-decoration: none;
   font-weight: medium;
@@ -85,6 +76,8 @@ strong {
 .units {
   position: relative;
   top: -35px;
+  color: black;
+  cursor: default;
 }
 .weather-details {
   font-size: 18px;

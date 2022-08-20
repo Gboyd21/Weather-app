@@ -167,23 +167,6 @@ function getCurrentPosition() {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
 
-function showCelsiusTemp(event) {
-  event.preventDefault();
-  let celsius = ((fahrenheitTemp - 32) * 5) / 9;
-  fahrenheitLink.classList.remove("active");
-  celsiusLink.classList.add("active");
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(celsius);
-}
-
-function showFahrenheitTemp(event) {
-  event.preventDefault();
-  fahrenheitLink.classList.add("active");
-  celsiusLink.classList.remove("active");
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = fahrenheitTemp;
-}
-
 let fahrenheitTemp = null;
 
 let form = document.querySelector("#search-city-form");
@@ -191,11 +174,5 @@ form.addEventListener("submit", handleSubmit);
 
 let button = document.querySelector("#current-location");
 button.addEventListener("click", getCurrentPosition);
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", showFahrenheitTemp);
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", showCelsiusTemp);
 
 search("chattanooga");
