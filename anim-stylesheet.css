@@ -67,3 +67,84 @@
     transform: translate3d(1000px, 0px, 0px);
   }
 }
+
+.raining {
+  background-color: #757a79;
+  overflow: hidden;
+  height: 200vh;
+}
+.rain-cloud {
+  position: fixed;
+  width: 600px;
+  margin-top: -140px;
+  animation: rain-cloud 150s linear infinite;
+}
+.rain-cloud-background {
+  position: fixed;
+  width: 600px;
+  margin-top: -150px;
+}
+.rc1 {
+  margin-left: -100px;
+}
+.rc2 {
+  margin-left: 850px;
+  z-index: 1;
+}
+.rc3 {
+  margin-left: 400px;
+  z-index: 2;
+}
+.rc4 {
+  margin-left: -200px;
+  z-index: -1;
+  opacity: 0.5;
+}
+.rc5 {
+  margin-left: 230px;
+  z-index: -1;
+  opacity: 0.5;
+}
+.rc6 {
+  margin-left: 600px;
+  z-index: -1;
+  opacity: 0.5;
+}
+i {
+  position: absolute;
+  height: 12px;
+  background: linear-gradient(transparent, rgba(255, 255, 255, 0.8));
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  animation: rain 5s infinite;
+  z-index: -2;
+}
+i:nth-child(3n + 1) {
+  background: linear-gradient(transparent, rgba(255, 255, 255, 0.8));
+  z-index: -2;
+}
+i:nth-child(3n + 2) {
+  background: linear-gradient(transparent, rgba(255, 255, 255, 0.8));
+  z-index: -2;
+}
+i:nth-child(3n + 3) {
+  background: linear-gradient(transparent, rgba(255, 255, 255, 0.8));
+  z-index: -2;
+}
+
+@keyframes rain {
+  from {
+    transform: translateY(-200px);
+  }
+  to {
+    transform: translateY(calc(200vh + 200px));
+  }
+}
+@keyframes rain-clouds {
+  from {
+    margin-left: 0px;
+  }
+  to {
+    margin-left: 100px;
+  }
+}

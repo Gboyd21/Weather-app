@@ -72,7 +72,6 @@ function showAnimation(response) {
   let quoteElement = document.querySelector("#quote");
   let clearAnimElement = document.querySelector(".sun");
   let overcastElement = document.querySelector(".overcast");
-  let rainElement = document.querySelector(".precipitation");
 
   let quoteHTML = `<div>`;
   let clearAnimHTML = `<div>`;
@@ -127,8 +126,11 @@ function showAnimation(response) {
   } else {
     background2.classList.remove("grey-sky");
   }
-  if (response === "Rain") {
+  if (response === "Rain" || response === "Thunderstorm") {
+    background3.classList.add("raining");
     quoteHTML = quoteHTML + `Dont forget your umbrella ☔`;
+  } else {
+    background3.classList.remove("raining");
   }
 
   quoteHTML = quoteHTML + `</div>`;
@@ -139,6 +141,30 @@ function showAnimation(response) {
 
   overcastAnimHTML = overcastAnimHTML + `</div>`;
   overcastElement.innerHTML = overcastAnimHTML;
+}
+
+function showRain(response) {
+  let amount = 600;
+  let body = document.querySelector("#rain");
+  let i = 0;
+
+  if (response === "Rain" || response === "Thunderstorm") {
+    while (i < amount) {
+      let drop = document.createElement(`i`);
+
+      let size = Math.random() * 2;
+      let positionX = Math.floor(Math.random() * window.innerWidth);
+      let delay = Math.random() * -10;
+      let duration = Math.random() * 2;
+
+      drop.style.width = size + `px`;
+      drop.style.left = positionX + `px`;
+      drop.style.animationDelay = delay + `s`;
+      drop.style.animationDuration = 1 + duration + `s`;
+      body.appendChild(drop);
+      i++;
+    }
+  }
 }
 
 function showTemp(response) {
@@ -166,6 +192,7 @@ function showTemp(response) {
 
   getForecast(response.data.coord);
   showAnimation(response.data.weather[0].main);
+  showRain(response.data.weather[0].main);
 }
 
 function search(city) {
