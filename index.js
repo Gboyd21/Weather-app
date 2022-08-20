@@ -69,17 +69,21 @@ function showAnimation(response) {
   let background1 = document.querySelector(".clear");
   let background2 = document.querySelector(".clouds");
   let background3 = document.querySelector(".rain");
+  let quoteElement = document.querySelector("#quote");
+  let clearAnimElement = document.querySelector(".sun");
+  let overcastElement = document.querySelector(".overcast");
+  let rainElement = document.querySelector(".precipitation");
 
-  let clearAnimElement = document.querySelector("#sun");
+  let quoteHTML = `<div>`;
   let clearAnimHTML = `<div>`;
+  let overcastAnimHTML = `<div>`;
 
   if (response === "Clear") {
     background1.classList.add("blue-sky");
-
     clearAnimHTML =
       clearAnimHTML +
-      `<div class="sun">
-      <img
+      `<div class="sunshine"> 
+      <img  
       class="cloudy"
       src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/043/986/original/60fe98bc3d624000048712a7.png?1660873653"
     />
@@ -91,8 +95,50 @@ function showAnimation(response) {
   } else {
     background1.classList.remove("blue-sky");
   }
+  if (response === "Clouds") {
+    background2.classList.add("grey-sky");
+    overcastAnimHTML =
+      overcastAnimHTML +
+      `  <img
+      class="scattered-clouds sc1"
+      src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/044/066/original/580b585b2edbce24c47b263b.png?1661005425"
+      alt=""
+    />
+    <img
+      class="scattered-clouds sc2"
+      src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/044/066/original/580b585b2edbce24c47b263b.png?1661005425"
+      alt=""
+    />
+    <img
+      class="scattered-clouds sc3"
+      src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/044/065/original/580b585b2edbce24c47b2639.png?1661005281"
+      alt=""
+    />
+    <img
+      class="scattered-clouds sc4"
+      src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/044/065/original/580b585b2edbce24c47b2639.png?1661005281"
+      alt=""
+    />
+    <img
+      class="scattered-clouds sc5"
+      src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/044/065/original/580b585b2edbce24c47b2639.png?1661005281"
+      alt=""
+    />`;
+  } else {
+    background2.classList.remove("grey-sky");
+  }
+  if (response === "Rain") {
+    quoteHTML = quoteHTML + `Dont forget your umbrella ☔`;
+  }
+
+  quoteHTML = quoteHTML + `</div>`;
+  quoteElement.innerHTML = quoteHTML;
+
   clearAnimHTML = clearAnimHTML + `</div>`;
   clearAnimElement.innerHTML = clearAnimHTML;
+
+  overcastAnimHTML = overcastAnimHTML + `</div>`;
+  overcastElement.innerHTML = overcastAnimHTML;
 }
 
 function showTemp(response) {

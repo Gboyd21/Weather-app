@@ -8,9 +8,7 @@ body {
   margin: 60px auto;
   background-color: rgba(220, 222, 224, 0.3);
 }
-hr {
-  opacity: 0.05;
-}
+
 li {
   list-style: none;
 }
@@ -65,7 +63,9 @@ strong {
 .high-low {
   font-size: smaller;
 }
-
+.horizontal {
+  opacity: 0.05;
+}
 #search-city-form {
   margin-bottom: 40px;
 }
@@ -78,6 +78,11 @@ strong {
   top: -35px;
   color: black;
   cursor: default;
+}
+.vertical {
+  transform: rotate(90deg);
+  width: 100px;
+  margin-left: -95px;
 }
 .weather-details {
   font-size: 18px;

@@ -23,7 +23,9 @@
     <link rel="stylesheet" href="anim-stylesheet.css" />
   </head>
   <body class="clear clouds rain">
-    <div id="sun"></div>
+    <span class="sun"></span>
+    <span class="overcast"></span>
+    <span class="precipitation"></span>
     <div class="wrapper">
       <div class="container">
         <form id="search-city-form">
@@ -45,7 +47,7 @@
             </div>
           </div>
         </form>
-        <hr />
+        <hr class="horizontal" />
         <div class="row" id="city-name">
           <div class="col-6">
             <span class="city">Chattanooga</span>
@@ -61,12 +63,12 @@
                 id="icon-code"
               />
               <span class="temperature" id="temperature"></span>
-              <span class="units">°F
+              <span class="units">°F</span>
             </span>
           </div>
         </div>
         <div class="row">
-          <div class="col-12">
+          <div class="col-6">
             <ul>
               <li>
                 <span class="weather-details">
@@ -77,8 +79,10 @@
                 </span>
               </li>
               <li class="weather-details" id="description"></li>
+              <li class="weather-details" id="quote"></li>
             </ul>
           </div>
+          <div class="col-6"></div>
         </div>
         <div class="weather-forecast" id="forecast"></div>
       </div>
