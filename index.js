@@ -143,8 +143,8 @@ function showRain(response) {
   let body = document.querySelector("#rain");
   let i = 0;
 
-  if (response === "Rain" || response === "Thunderstorm") {
-    while (i < amount) {
+  while (i < amount) {
+    if (response === "Rain" || response === "Thunderstorm") {
       let drop = document.createElement(`i`);
 
       let size = Math.random() * 2;
@@ -157,10 +157,8 @@ function showRain(response) {
       drop.style.animationDelay = delay + `s`;
       drop.style.animationDuration = 1 + duration + `s`;
       body.appendChild(drop);
-      i++;
     }
-  } else {
-    return false;
+    i++;
   }
 }
 
