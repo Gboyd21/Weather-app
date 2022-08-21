@@ -127,7 +127,6 @@ function showAnimation(response) {
   }
   if (response === "Rain" || response === "Thunderstorm") {
     background3.classList.add("raining");
-    showRain(response);
   } else {
     background3.classList.remove("raining");
   }
@@ -144,7 +143,7 @@ function showRain(response) {
   let body = document.querySelector("#rain");
   let i = 0;
 
-  while (i < amount && response === "Rain");
+  while (i < amount);
   {
     let drop = document.createElement(`i`);
 
@@ -187,6 +186,7 @@ function showTemp(response) {
 
   getForecast(response.data.coord);
   showAnimation(response.data.weather[0].main);
+  showRain(response.data.weather[0].main);
 }
 
 function search(city) {
