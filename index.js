@@ -75,7 +75,6 @@ function showAnimation(response) {
 
   let clearAnimHTML = `<div>`;
   let overcastAnimHTML = `<div>`;
-  let precipitationHTML = `<div>`;
 
   if (response === "Clear") {
     background1.classList.add("blue-sky");
@@ -128,7 +127,7 @@ function showAnimation(response) {
   }
   if (response === "Rain" || response === "Thunderstorm") {
     background3.classList.add("raining");
-    quoteElement.innerHTML = `Dont forget your umbrella ☔`;
+    showRain(response);
   } else {
     background3.classList.remove("raining");
   }
@@ -145,22 +144,21 @@ function showRain(response) {
   let body = document.querySelector("#rain");
   let i = 0;
 
-  if (response === "Rain" || response === "Thunderstorm") {
-    while (i < amount) {
-      let drop = document.createElement(`i`);
+  while (i < amount && response === "Rain");
+  {
+    let drop = document.createElement(`i`);
 
-      let size = Math.random() * 2;
-      let positionX = Math.floor(Math.random() * window.innerWidth);
-      let delay = Math.random() * -10;
-      let duration = Math.random() * 2;
+    let size = Math.random() * 2;
+    let positionX = Math.floor(Math.random() * window.innerWidth);
+    let delay = Math.random() * -10;
+    let duration = Math.random() * 2;
 
-      drop.style.width = 0.2 + size + `px`;
-      drop.style.left = positionX + `px`;
-      drop.style.animationDelay = delay + `s`;
-      drop.style.animationDuration = 1 + duration + `s`;
-      body.appendChild(drop);
-      i++;
-    }
+    drop.style.width = 0.2 + size + `px`;
+    drop.style.left = positionX + `px`;
+    drop.style.animationDelay = delay + `s`;
+    drop.style.animationDuration = 1 + duration + `s`;
+    body.appendChild(drop);
+    i++;
   }
 }
 
@@ -189,7 +187,6 @@ function showTemp(response) {
 
   getForecast(response.data.coord);
   showAnimation(response.data.weather[0].main);
-  showRain(response.data.weather[0].main);
 }
 
 function search(city) {
