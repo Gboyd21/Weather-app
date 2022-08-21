@@ -157,8 +157,8 @@ function showRain(response) {
       drop.style.animationDelay = delay + `s`;
       drop.style.animationDuration = 1 + duration + `s`;
       body.appendChild(drop);
-      i++;
     }
+    i++;
   }
 }
 
