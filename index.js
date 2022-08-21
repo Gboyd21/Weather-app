@@ -75,7 +75,6 @@ function showAnimation(response) {
 
   let clearAnimHTML = `<div>`;
   let overcastAnimHTML = `<div>`;
-  let precipitationHTML = `<div>`;
 
   if (response === "Clear") {
     background1.classList.add("blue-sky");
@@ -128,7 +127,6 @@ function showAnimation(response) {
   }
   if (response === "Rain" || response === "Thunderstorm") {
     background3.classList.add("raining");
-    quoteElement.innerHTML = `Dont forget your umbrella ☔`;
   } else {
     background3.classList.remove("raining");
   }
@@ -161,6 +159,8 @@ function showRain(response) {
       body.appendChild(drop);
       i++;
     }
+  } else {
+    return false;
   }
 }
 
