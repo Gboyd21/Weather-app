@@ -69,20 +69,21 @@
 }
 
 .raining {
-  background-color: #757a79;
+  background-color: rgba(117, 122, 121, 0.8);
   overflow: hidden;
-  height: 200vh;
+  height: 200px;
 }
 .rain-cloud {
   position: fixed;
   width: 600px;
   margin-top: -140px;
-  animation: rain-cloud 150s linear infinite;
+  animation: rain-cloud 300s linear infinite;
 }
 .rain-cloud-background {
   position: fixed;
   width: 600px;
   margin-top: -150px;
+  animation: rain-cloud 150s linear infinite;
 }
 .rc1 {
   margin-left: -100px;
@@ -111,40 +112,40 @@
   opacity: 0.5;
 }
 i {
-  position: absolute;
+  position: fixed;
   height: 12px;
-  background: linear-gradient(transparent, rgba(255, 255, 255, 0.8));
+  background: linear-gradient(transparent, rgb(255, 255, 255));
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   animation: rain 5s infinite;
   z-index: -2;
 }
 i:nth-child(3n + 1) {
-  background: linear-gradient(transparent, rgba(255, 255, 255, 0.8));
+  background: linear-gradient(transparent, rgb(255, 255, 255));
   z-index: -2;
 }
 i:nth-child(3n + 2) {
-  background: linear-gradient(transparent, rgba(255, 255, 255, 0.8));
+  background: linear-gradient(transparent, rgb(255, 255, 255));
   z-index: -2;
 }
 i:nth-child(3n + 3) {
-  background: linear-gradient(transparent, rgba(255, 255, 255, 0.8));
+  background: linear-gradient(transparent, rgb(255, 255, 255));
   z-index: -2;
 }
 
 @keyframes rain {
   from {
-    transform: translateY(-200px);
+    transform: translateY(-900px);
   }
   to {
     transform: translateY(calc(200vh + 200px));
   }
 }
-@keyframes rain-clouds {
+@keyframes rain-cloud {
   from {
-    margin-left: 0px;
+    transform: translate3d(0px, 0px, 0px);
   }
   to {
-    margin-left: 100px;
+    transform: translate3d(1000px, 0px, 0px);
   }
 }

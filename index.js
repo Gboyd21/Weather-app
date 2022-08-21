@@ -73,9 +73,9 @@ function showAnimation(response) {
   let clearAnimElement = document.querySelector(".sun");
   let overcastElement = document.querySelector(".overcast");
 
-  let quoteHTML = `<div>`;
   let clearAnimHTML = `<div>`;
   let overcastAnimHTML = `<div>`;
+  let precipitationHTML = `<div>`;
 
   if (response === "Clear") {
     background1.classList.add("blue-sky");
@@ -128,13 +128,10 @@ function showAnimation(response) {
   }
   if (response === "Rain" || response === "Thunderstorm") {
     background3.classList.add("raining");
-    quoteHTML = quoteHTML + `Dont forget your umbrella ☔`;
+    quoteElement.innerHTML = `Dont forget your umbrella ☔`;
   } else {
     background3.classList.remove("raining");
   }
-
-  quoteHTML = quoteHTML + `</div>`;
-  quoteElement.innerHTML = quoteHTML;
 
   clearAnimHTML = clearAnimHTML + `</div>`;
   clearAnimElement.innerHTML = clearAnimHTML;
@@ -144,7 +141,7 @@ function showAnimation(response) {
 }
 
 function showRain(response) {
-  let amount = 600;
+  let amount = 800;
   let body = document.querySelector("#rain");
   let i = 0;
 
@@ -157,7 +154,7 @@ function showRain(response) {
       let delay = Math.random() * -10;
       let duration = Math.random() * 2;
 
-      drop.style.width = size + `px`;
+      drop.style.width = 0.2 + size + `px`;
       drop.style.left = positionX + `px`;
       drop.style.animationDelay = delay + `s`;
       drop.style.animationDuration = 1 + duration + `s`;

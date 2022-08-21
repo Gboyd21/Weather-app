@@ -72,6 +72,9 @@ strong {
 .horizontal {
   opacity: 0.05;
 }
+.integer {
+  color: #6b206a;
+}
 #search-city-form {
   margin-bottom: 40px;
 }
