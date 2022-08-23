@@ -72,9 +72,12 @@ function showAnimation(response) {
   let quoteElement = document.querySelector("#quote");
   let clearAnimElement = document.querySelector(".sun");
   let overcastElement = document.querySelector(".overcast");
+  let precipitationElement = document.querySelector(".precipitation");
 
+  let rainAnimHTML = `<div>`;
   let clearAnimHTML = `<div>`;
   let overcastAnimHTML = `<div>`;
+  let quoteHTML = `<div>`;
 
   if (response === "Clear") {
     background1.classList.add("blue-sky");
@@ -93,6 +96,7 @@ function showAnimation(response) {
   } else {
     background1.classList.remove("blue-sky");
   }
+
   if (response === "Clouds") {
     background2.classList.add("grey-sky");
     overcastAnimHTML =
@@ -125,41 +129,58 @@ function showAnimation(response) {
   } else {
     background2.classList.remove("grey-sky");
   }
+
   if (response === "Rain" || response === "Thunderstorm") {
     background3.classList.add("raining");
+
+    rainAnimHTML =
+      rainAnimHTML +
+      `  <img
+      class="rain-cloud rc1"
+        src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/044/065/original/580b585b2edbce24c47b2639.png?1661005281"
+        alt=""
+    />
+    <img
+        class="rain-cloud rc2"
+        src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/044/065/original/580b585b2edbce24c47b2639.png?1661005281"
+        alt="" />
+    <img
+        class="rain-cloud rc3"
+        src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/044/065/original/580b585b2edbce24c47b2639.png?1661005281"
+        alt=""
+      />
+    <img
+        class="rain-cloud-background rc4"
+        src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/044/065/original/580b585b2edbce24c47b2639.png?1661005281"
+        alt=""
+      />
+    <img
+        class="rain-cloud-background rc5"
+        src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/044/065/original/580b585b2edbce24c47b2639.png?1661005281"
+        alt=""
+      />
+      <img
+        class="rain-cloud-background rc6"
+        src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/044/065/original/580b585b2edbce24c47b2639.png?1661005281"
+        alt=""
+      />
+       `;
+    quoteHTML = quoteHTML + `Look outside, it's probably raining!`;
   } else {
     background3.classList.remove("raining");
   }
+
+  quoteHTML = quoteHTML + `</div>`;
+  quoteElement.innerHTML = quoteHTML;
+
+  rainAnimHTML = rainAnimHTML + `</div>`;
+  precipitationElement.innerHTML = rainAnimHTML;
 
   clearAnimHTML = clearAnimHTML + `</div>`;
   clearAnimElement.innerHTML = clearAnimHTML;
 
   overcastAnimHTML = overcastAnimHTML + `</div>`;
   overcastElement.innerHTML = overcastAnimHTML;
-}
-
-function showRain(response) {
-  let amount = 800;
-  let body = document.querySelector("#rain");
-  let i = 0;
-
-  while (i < amount) {
-    if (response === "Rain" || response === "Thunderstorm") {
-      let drop = document.createElement(`i`);
-
-      let size = Math.random() * 2;
-      let positionX = Math.floor(Math.random() * window.innerWidth);
-      let delay = Math.random() * -10;
-      let duration = Math.random() * 2;
-
-      drop.style.width = 0.2 + size + `px`;
-      drop.style.left = positionX + `px`;
-      drop.style.animationDelay = delay + `s`;
-      drop.style.animationDuration = 1 + duration + `s`;
-      body.appendChild(drop);
-    }
-    i++;
-  }
 }
 
 function showTemp(response) {
@@ -187,7 +208,6 @@ function showTemp(response) {
 
   getForecast(response.data.coord);
   showAnimation(response.data.weather[0].main);
-  showRain(response.data.weather[0].main);
 }
 
 function search(city) {
@@ -217,7 +237,7 @@ function showGeoTemp(response) {
   cityTemp.innerHTML = `${temperature}`;
   humidity.innerHTML = humidityData;
   newCity.innerHTML = city;
-  windSpeed.innerHTML = `Wind: ${wind} mph`;
+  windSpeed.innerHTML = `${wind} mph`;
 }
 
 function showPosition(position) {

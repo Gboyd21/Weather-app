@@ -73,7 +73,11 @@ strong {
   opacity: 0.05;
 }
 .integer {
-  color: #6b206a;
+  color: #885df1;
+}
+#quote {
+  color: #885df1;
+  font-weight: bolder;
 }
 #search-city-form {
   margin-bottom: 40px;
