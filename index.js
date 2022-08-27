@@ -238,6 +238,9 @@ function showGeoTemp(response) {
   humidity.innerHTML = humidityData;
   newCity.innerHTML = city;
   windSpeed.innerHTML = `${wind} mph`;
+
+  getForecast(response.data.coord);
+  showAnimation(response.data.weather[0].main);
 }
 
 function showPosition(position) {
